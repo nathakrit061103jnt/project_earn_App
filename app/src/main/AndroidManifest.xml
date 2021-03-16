@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.apptravel">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <uses-feature android:name="android.hardware.type.watch" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -16,10 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppTravel"
         android:usesCleartextTraffic="true">
-        <activity android:name=".HotelDetailActivity"></activity>
-        <activity android:name=".AttractionDetailActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".Page2Activity2" />
+        <activity android:name=".HotelDetailActivity" />
+        <activity android:name=".AttractionDetailActivity" />
         <activity android:name=".BulletinBoardDetailActivity" />
         <activity
             android:name=".MainActivity"
@@ -27,7 +24,6 @@
             android:theme="@style/Theme.AppTravel.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

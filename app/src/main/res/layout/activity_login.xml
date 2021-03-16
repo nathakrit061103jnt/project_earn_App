@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:background="#5BFF5722"
     tools:context=".LoginActivity">
-
-
     <TextView
         android:id="@+id/textView104545"
         android:layout_width="159dp"

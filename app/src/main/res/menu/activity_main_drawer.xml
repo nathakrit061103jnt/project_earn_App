@@ -8,37 +8,28 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+<!--        <item-->
+<!--            android:id="@+id/nav_slideshow"-->
+<!--            android:icon="@drawable/ic_menu_slideshow"-->
+<!--            android:title="@string/menu_slideshow" />-->
 
         <item
-            android:id="@+id/bulletinBoaedFragment"
+            android:id="@+id/profileFragment"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="bulletinBoaedFragment" />
-
-        <item
-            android:id="@+id/loginActivity"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="loginActivity"
+            android:title="ข้อมูลส่วนตัว"
             />
 
         <item
             android:id="@+id/registerActivity"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="registerActivity"
-            />
-        <item
-            android:id="@+id/profileFragment"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="profileFragment"
+            android:title="สมัครสมาชิก"
             />
 
+        <item
+            android:id="@+id/loginActivity"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="ออกจากระบบ"
+            />
 
     </group>
 </menu>

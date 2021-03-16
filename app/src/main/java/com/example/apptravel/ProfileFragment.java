@@ -3,10 +3,13 @@ package com.example.apptravel;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,9 +59,38 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
+        // Inflate the layout for this fragmen
+
+        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        TextView txt_u_name_data, txt_u_tel_data,txt_u_address_data,txt_u_email_data;
+        Button btnEditProfile_to_page;
+        User user = SharedPrefManager.getInstance(getContext()).getUser();
+
+        txt_u_name_data = root.findViewById(R.id.txt_u_name_data);
+        txt_u_tel_data = root.findViewById(R.id.txt_u_tel_data);
+        txt_u_address_data = root.findViewById(R.id.txt_u_email_data);
+        txt_u_email_data = root.findViewById(R.id.txt_u_address_data);
+        btnEditProfile_to_page = root.findViewById(R.id.btnEditProfile_to_page);
+
+        txt_u_name_data.setText(String.valueOf(user.getName()));
+        txt_u_tel_data.setText(String.valueOf(user.getTel()));
+        txt_u_address_data.setText(String.valueOf(user.getAddress()));
+        txt_u_email_data.setText(String.valueOf(user.getEmail()));
+
+        btnEditProfile_to_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnEditProfile_to_page.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Navigation.findNavController(v).navigate(R.id.action_profileFragment_to_editProfileFragment);
+                    }
+                });
+            }
+        });
+
+        return root;
     }
 }

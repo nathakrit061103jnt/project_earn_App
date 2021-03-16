@@ -37,16 +37,8 @@
         android:name="com.example.apptravel.BulletinBoardFragment"
         android:label="fragment_bulletin_boaed"
         tools:layout="@layout/fragment_bulletin_boaed" />
-    <activity
-        android:id="@+id/loginActivity"
-        android:name="com.example.apptravel.LoginActivity"
-        android:label="activity_login"
-        tools:layout="@layout/activity_login" />
-    <activity
-        android:id="@+id/registerActivity"
-        android:name="com.example.apptravel.RegisterActivity"
-        android:label="activity_register"
-        tools:layout="@layout/activity_register" />
+
+
     <activity
         android:id="@+id/bulletinBoardDetailActivity"
         android:name="com.example.apptravel.BulletinBoardDetailActivity"
@@ -66,5 +58,35 @@
         android:id="@+id/profileFragment"
         android:name="com.example.apptravel.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/page2Activity2"
+        android:name="com.example.apptravel.Page2Activity2"
+        android:label="activity_page22"
+        tools:layout="@layout/activity_page22" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.apptravel.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.example.apptravel.RegisterActivity"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.apptravel.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+
 </navigation>

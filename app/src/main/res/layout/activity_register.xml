@@ -4,103 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="#5BFF5722"
     tools:context=".RegisterActivity">
-
-
-    <TextView
-        android:id="@+id/txt_login"
-        android:layout_width="72dp"
-        android:layout_height="20dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="24dp"
-        android:text="เข้าสู่ระบบ"
-        android:textColor="#2196F3"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/et_u_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="ชื่อ-สกุล"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tyyuu4455" />
-
-    <EditText
-        android:id="@+id/et_u_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="อีเมล"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_u_name" />
-
-    <EditText
-        android:id="@+id/et_u_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="รหัสผ่าน"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_u_email" />
-
-    <EditText
-        android:id="@+id/et_u_tel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="เบอร์โทรศัพท์"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_u_password" />
-
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="ลงทะเบียน"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_u_address" />
-
-    <EditText
-        android:id="@+id/et_u_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="ที่อยู่"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_u_tel" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="269dp"
         android:layout_height="121dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +28,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tyyuu478455"
+                android:id="@+id/tyyuu4455"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
@@ -139,17 +50,98 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tyyuu4455"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="333dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="สมัครสมาชิก"
-        android:textColor="#9C27B0"
-        android:textStyle="bold"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <EditText
+            android:id="@+id/et_u_name"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:hint="ชื่อ-สกุล"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_u_email"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="อีเมล"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/et_u_password"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="รหัสผ่าน"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/et_u_tel"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="เบอร์โทรศัพท์"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/et_u_address"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ที่อยู่"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="241dp"
+        android:layout_height="21dp"
+        android:layout_marginBottom="45dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        app:layout_constraintVertical_bias="0.85">
+
+        <TextView
+            android:id="@+id/textView104545"
+            android:layout_width="124dp"
+            android:layout_height="match_parent"
+            android:text="มีบัญชีผู้ใช้เเล้ว"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_login"
+            android:layout_width="93dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:text="เข้าสู่ระบบ"
+            android:textColor="#FF5722"
+            android:textColorHighlight="#F44336"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="สมัครสมาชิก"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

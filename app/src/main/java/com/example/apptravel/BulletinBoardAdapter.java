@@ -4,10 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -30,16 +33,14 @@ public class BulletinBoardAdapter extends RecyclerView.Adapter< BulletinBoardAda
 
     class BulletinBoardViewHolder extends RecyclerView.ViewHolder {
         //ประกาศชื)อตัวแปรอ้างอิงถึง TextView ที)อยู่บน Layout
-        TextView txt_bb_id, txt_bb_name, txt_bb_detail, txt_bb_date;
+        TextView  txt_bb_name ;
+        ImageView imageView;
 
         public BulletinBoardViewHolder(@NonNull View itemView) {
             super(itemView);
 //อ้างอิงถึงตัวแปรแต่ละตัวไปยัง TextView ที)อยู่บน Layout
-            txt_bb_id = itemView.findViewById(R.id.txt_h_name);
             txt_bb_name = itemView.findViewById(R.id.txt_bb_name);
-            txt_bb_detail = itemView.findViewById(R.id.txt_bb_detail);
-            txt_bb_date = itemView.findViewById(R.id.txt_bb_date);
-
+            imageView = itemView.findViewById(R.id.imageView10);
             itemView.setTag(this);
             itemView.setOnClickListener(onItemClickListener);
 
@@ -59,14 +60,15 @@ public class BulletinBoardAdapter extends RecyclerView.Adapter< BulletinBoardAda
     @Override
     public void onBindViewHolder(@NonNull BulletinBoardViewHolder holder, int position) {
 //นาข้อมลูแต่ละฟิ วด์ไปแสดงบน TextView แต่ละตัว
-        String txt_bb_id = bulletinBoarsArrayList.get(position).getBb_id();
-        holder.txt_bb_id.setText(txt_bb_id);
+
         String txt_bb_name = bulletinBoarsArrayList.get(position).getBb_name();
         holder.txt_bb_name.setText(txt_bb_name);
-        String txt_bb_detail = bulletinBoarsArrayList.get(position).getBb_detail();
-        holder.txt_bb_detail.setText(txt_bb_detail);
-        String txt_bb_date = bulletinBoarsArrayList.get(position).getBb_date();
-        holder.txt_bb_date.setText(txt_bb_date);
+
+        String bb_image_s = bulletinBoarsArrayList.get(position).getBb_image();
+
+        String path = URLs.IMAGE_URL + "news/" + bb_image_s;
+        Picasso.get().load(path).into(holder.imageView);
+
     }
 
 

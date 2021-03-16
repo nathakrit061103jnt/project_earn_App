@@ -1,20 +1,13 @@
 package com.example.apptravel;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -25,23 +18,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import org.json.JSONObject;
-
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private AppBarConfiguration mAppBarConfiguration;
+
+    ClipData.Item BtnloginActivityLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 //        FloatingActionButton fab = findViewById(R.id.fab);
@@ -53,18 +40,33 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+//        BtnloginActivityLogout = findViewById(R.loginActivity);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
                 R.id.bulletinBoaedFragment ,R.id.bulletinBoardDetailActivity,
-                R.id.attractionFragment,R.id.hotelFragment,R.id.profileFragment)
+                R.id.attractionFragment,R.id.hotelFragment,R.id.profileFragment,
+                R.id.editProfileFragment)
                 .setDrawerLayout(drawer)
                 .build();
+
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView txt_u_name_h = (TextView) headerView.findViewById(R.id.txt_u_name_h);
+        TextView txt_u_email_h = (TextView) headerView.findViewById(R.id.txt_u_email_h);
+
+        User user = SharedPrefManager.getInstance(this).getUser();
+
+        txt_u_name_h.setText(String.valueOf(user.getName()));
+        txt_u_email_h.setText(String.valueOf(user.getEmail()));
+
+
     }
 
     @Override
@@ -79,6 +81,28 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!SharedPrefManager.getInstance(getApplicationContext()).isLoggedIn()) {
+            Intent intent = new Intent( getApplicationContext(),LoginActivity.class);
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(), "ยังไม่เข้าสู่ระบบ", Toast.LENGTH_LONG).show();
+        }else{
+
+            NavigationView navigationView = findViewById(R.id.nav_view);
+
+            View headerView = navigationView.getHeaderView(0);
+            TextView txt_u_name_h = (TextView) headerView.findViewById(R.id.txt_u_name_h);
+            TextView txt_u_email_h = (TextView) headerView.findViewById(R.id.txt_u_email_h);
+
+            User user = SharedPrefManager.getInstance(this).getUser();
+
+            txt_u_name_h.setText(String.valueOf(user.getName()));
+            txt_u_email_h.setText(String.valueOf(user.getEmail()));
+        }
     }
 
 

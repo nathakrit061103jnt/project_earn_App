@@ -3,10 +3,10 @@ package com.example.apptravel;
 
 public class User {
 
-    private int u_id;
-    private String u_email, u_tel, u_name, u_address;
 
-    public User(int u_id, String u_email, String u_tel, String u_name, String u_address) {
+    private String u_id,u_email, u_tel, u_name, u_address;
+
+    public User(String u_id, String u_email, String u_tel, String u_name, String u_address) {
         this.u_id = u_id;
         this.u_email = u_email;
         this.u_tel = u_tel;
@@ -14,11 +14,11 @@ public class User {
         this.u_address = u_address;
     }
 
-    public int getUid() {
+    public String getUid() {
         return u_id;
     }
 
-    public void setUid(int u_id) {
+    public void setUid(String u_id) {
         this.u_id = u_id;
     }
 

@@ -1,5 +1,6 @@
 package com.example.apptravel;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -76,6 +78,10 @@ public class AttractionFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
+
+
     }
 
     @Override
@@ -88,11 +94,16 @@ public class AttractionFragment extends Fragment {
         rvAttractions.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAttractions.setLayoutManager(llm);
+
+//        fragment_attraction.setTitle("Your actionbar title");
+
 //เรียกใช้เมธอด loadMovieData ที@สร้างก่อนหน้านี=
         loadAttractionData();
 
         return view;
     }
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -136,7 +147,7 @@ public class AttractionFragment extends Fragment {
                                 public void onClick(View view) {
                                     RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
                                     int position = viewHolder.getAdapterPosition();
-                                    Intent data = new Intent(view.getContext(), HotelDetailActivity.class);
+                                    Intent data = new Intent(view.getContext(), AttractionDetailActivity.class);
                                     Attraction attraction = listData.get(position);
                                     data.putExtra("attractionData", attraction);
                                     startActivityForResult(data, 1);
